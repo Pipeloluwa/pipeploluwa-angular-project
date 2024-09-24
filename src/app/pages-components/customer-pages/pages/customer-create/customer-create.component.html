@@ -1,0 +1,114 @@
+
+<div class="parentContainer">
+  <mat-toolbar class="toolBarContainer">
+    <div class="toolBarChildContainer" (click)="navigateBack()">
+      <mat-icon>
+        arrow_back
+      </mat-icon>
+
+      <span>New Customer</span>
+    </div>
+
+  </mat-toolbar>
+
+
+  <div class="childrenContainer">
+
+    <div class="formContainer">
+
+        <div class="tipContainer">
+          <h4>
+            Create New Customer
+          </h4>
+
+          <p>
+            Fill in the form below to create a new customer
+          </p>
+        </div>
+
+        <form [formGroup]="customerFormGroup" (ngSubmit)="createNewCustomer(customerFormGroup.value)"  class="formStyle">
+          <mat-form-field class="inputStyle">
+            <mat-label >Name</mat-label>
+            <input matInput formControlName="name" type="text" placeholder="Enter your name">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email" placeholder="Enter your email">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Phone Number</mat-label>
+            <input matInput formControlName="phone" type="text" placeholder="Enter your number">
+          </mat-form-field>
+
+          <mat-form-field >
+            <mat-label>Address</mat-label>
+            <input matInput formControlName="address" type="text" placeholder="Enter your address">
+          </mat-form-field>
+
+          <button class="raisedButton" mat-raised-button type="submit">
+            Submit
+          </button>
+
+        </form>
+
+    </div>
+
+  </div>
+
+
+
+  <app-spinner-progress *ngIf="spinnerState"></app-spinner-progress>
+
+  <div *ngIf="overlayState" (click)="overlayState= false" class="dialogOverlay">
+
+    <div (click)="restrictPropagation($event)" class="dialogContent">
+
+      <div class="dialogContentChild">
+
+        <div class="successMessage">
+          <h5>
+            Created Successfully
+          </h5>
+
+          <mat-icon class="iconDone">done_all</mat-icon>
+        </div>
+
+        <div class="dialogResponseDetails">
+
+          <div>
+            Customer Id:
+            <span> {{createNewCustomerResponse.id}}</span>
+          </div>
+
+
+          <div>
+            Name:
+            <span> {{createNewCustomerResponse.name}}</span>
+          </div>
+
+          <div>
+            Email:
+            <span> {{createNewCustomerResponse.email}}</span>
+          </div>
+
+          <div>
+            Address:
+            <span> {{createNewCustomerResponse.address.street}}</span>
+          </div>
+
+          <div class="phoneStyle">
+            Phone:
+            <span> {{createNewCustomerResponse.phone}}</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

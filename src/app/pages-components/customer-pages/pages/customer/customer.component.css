@@ -1,0 +1,134 @@
+.parentContainer{
+  position: relative;
+}
+
+.toolBarStyle{
+  width: 100%;
+  display: flex;
+  gap: 0px 40px;
+  top: 0px;
+  position: sticky;
+  background-color: #005aa3 !important;
+  color: #ffffff !important;
+}
+
+
+.searchContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px 20px;
+}
+
+.searchContainer input{
+  height: 45px;
+  width: 70%;
+  border: transparent;
+  border-radius: 22px;
+  outline-color: #0277d6;
+  padding: 0px 10px;
+  box-shadow: rgb(75, 75, 75, 0.5) 0px 5px 5px;
+}
+
+
+.toolBarStyle .buttonContainer{
+  display: flex;
+  justify-content: end;
+  padding-right: 50px;
+}
+
+.add-icon-style{
+  color: #0277d6 !important;
+  background-color: #f4faff;
+  height: 45px;
+  width: 45px;
+}
+
+.raisedButton{
+  background-color: #0277d6 !important;
+  color: #ffffff !important;
+}
+
+.mat-elevation-z8{
+  background-color: white !important;
+  color: grey !important;
+}
+
+.mat-elevation-z8 th{
+  color: #181818 !important;
+  font-size: large;
+}
+
+.mat-elevation-z8 td{
+  color: #181818 !important;
+}
+
+
+.whiteColor{
+  color: white !important;
+}
+
+
+.actionButtonStyle{
+  display: flex;
+  align-items: center;
+  gap: 0px 15px;
+}
+
+.viewButtonStyle{
+  color: #0db41b;
+  cursor: pointer;
+}
+
+.editButtonStyle{
+  color: #ffd900;
+  cursor: pointer;
+}
+
+.deleteButtonStyle{
+  color: #d31f1f;
+  cursor: pointer;
+}
+
+
+
+.dialogOverlay{
+  position: fixed;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+}
+
+
+
+.dialogContent{
+  display: flex;
+  color: #0277d6;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  background-color: white;
+  border-radius: 22px;
+  padding-left: 20px;
+}
+
+
+.tableHeader{
+
+}
+
+
+
+
+

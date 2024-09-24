@@ -1,0 +1,66 @@
+    <!-- ++++++++++++++++++++ CUSTOMER EDIT ++++++++++++++++++ -->
+    <div class="dialogOverlay">
+
+      <div (click)="restrictPropagationFunction($event)" class="dialogViewContent">
+        <div class="dialogViewContentChild">
+          <div class="successMessage">
+            <h4>
+              Edit Customer
+            </h4>
+          </div>
+
+          <form [formGroup]="customerFormGroupChild" (ngSubmit)="updateCustomer(customerFormGroupChild.value)"  class="formStyle">
+            <mat-form-field>
+              <mat-label >Name</mat-label>
+              <input matInput formControlName="name" type="text" placeholder="Enter your name">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" type="email" placeholder="Enter your email">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Phone Number</mat-label>
+              <input matInput formControlName="phone" type="text" placeholder="Enter your number">
+            </mat-form-field>
+
+            <mat-form-field >
+              <mat-label>Address</mat-label>
+              <input matInput formControlName="address" type="text" placeholder="Enter your address">
+            </mat-form-field>
+
+            <button class="raisedButton" mat-raised-button type="submit">
+              Update
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+
+    <app-spinner-progress *ngIf="overlayUpdateState"></app-spinner-progress>
+
+    <div
+      *ngIf="updatedSuccessfullyState"
+      (click)="restrictPropagationFunction($event); updatedSuccessfullyState= false;"
+      class="dialogOverlay">
+
+      <div (click)="restrictPropagationFunction($event)" class="dialogMessageContent">
+
+        <h5>
+          Updated Successfully
+        </h5>
+
+        <mat-icon class="iconDone">done_all</mat-icon>
+
+      </div>
+
+    </div>

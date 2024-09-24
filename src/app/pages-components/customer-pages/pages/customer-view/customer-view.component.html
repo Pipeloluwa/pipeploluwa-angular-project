@@ -1,0 +1,43 @@
+  <!-- ++++++++++++ CUSTOMER VIEW ++++++++++++ -->
+  <div class="dialogOverlay">
+
+    <div (click)="restrictPropagationFunction($event)" class="dialogViewContent">
+      <div class="dialogViewContentChild">
+        <div class="successMessage">
+          <h5>
+            Customer View
+          </h5>
+        </div>
+
+        <div class="dialogViewResponseDetails">
+          <div>
+            ID:
+            <span> {{singleCustomerDataChild?.id}}</span>
+          </div>
+
+          <div>
+            Name:
+            <span> {{singleCustomerDataChild?.name}}</span>
+          </div>
+
+          <div>
+            Email:
+            <span> {{singleCustomerDataChild?.email}}</span>
+          </div>
+
+          <div>
+            Address:
+            <span> {{singleCustomerDataChild?.address?.street}}</span>
+          </div>
+
+          <div>
+            Phone:
+            <span> {{singleCustomerDataChild?.phone}}</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>

@@ -1,0 +1,153 @@
+
+.parentContainer{
+  height: 100svh;
+  width: 100%;
+  position: relative;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+.toolBarContainer{
+  z-index: 50;
+  display: flex;
+  width: 100%;
+  top: 0px;
+  position: sticky;
+  background-color: #005aa3 !important;
+  color: #ffffff !important;
+}
+
+.toolBarChildContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px 10px;
+  cursor: pointer;
+}
+
+.childrenContainer{
+  height: 90%;
+}
+
+.tipContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px 0px;
+}
+
+.tipContainer h4{
+  font-size: 32px !important;
+  margin: 0px;
+}
+
+.tipContainer p{
+  font-style: oblique;
+}
+
+.formContainer{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px 0px;
+}
+
+
+.formContainer h4{
+  color: #005eaa;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+
+.formStyle{
+  display: flex;
+  padding: 50px;
+  border-radius: 22px;
+  background-color: #f9fcff;
+  box-shadow: #e0e0e0 10px 10px 10px 10px;
+  flex-flow: column;
+  width: 350px;
+}
+
+
+
+.dialogOverlay{
+  position: fixed;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+}
+
+
+
+.dialogContent{
+  overflow: hidden;
+  width: 450px;
+  height: 450px;
+  margin: auto;
+  background-color: white;
+  border-radius: 22px;
+  padding-left: 20px;
+}
+
+
+.dialogContentChild{
+  width: 100%;
+  height: 430px;
+  overflow-y: scroll;
+  padding-top: 20px;
+}
+
+.dialogResponseDetails{
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0px;
+}
+
+.dialogResponseDetails div{
+  border: solid rgb(206, 206, 206) 1px;
+  border-radius: 8px;
+  padding: 15px 7px;
+}
+
+
+.successMessage{
+  color: #005eaa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.phoneStyle{
+  margin-bottom: 20px;
+}
+
+.iconDone{
+  margin: 0px;
+  scale: 1.5 !important;
+}
+
+.raisedButton{
+  z-index: 0;
+  background-color: #0277d6 !important;
+  color: #ffffff !important;
+  height: 55px;
+  border-radius: 8px;
+  box-shadow: #7c7c7c 0px 3px;
+}
+
+

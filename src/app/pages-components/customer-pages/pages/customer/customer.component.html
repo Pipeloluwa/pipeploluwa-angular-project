@@ -1,0 +1,119 @@
+<div class="parentContainer">
+
+  <mat-toolbar class="toolBarStyle">
+
+    <span>My App</span>
+
+    <form class="searchContainer">
+      <input [(ngModel)]="searchInputValue" (input)="makeSearchValue()" required type="search" name="searchForm" placeholder="Search for customer by name or email ...">
+    </form>
+
+    <div class="buttonContainer">
+      <button mat-fab (click)="goTo()" class="add-icon-style favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+  </mat-toolbar>
+
+
+  <table *ngIf="!spinnerState" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th class="tableHeader" mat-header-cell *matHeaderCellDef> ID </th>
+      <td class="whiteColor" mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th class="tableHeader" mat-header-cell *matHeaderCellDef> Name </th>
+      <td class="whiteColor" mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="email">
+      <th class="tableHeader" mat-header-cell *matHeaderCellDef> Email </th>
+      <td class="whiteColor" mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="address">
+      <th class="tableHeader" mat-header-cell *matHeaderCellDef> Address </th>
+      <td class="whiteColor" mat-cell *matCellDef="let element"> {{element.address.street}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="phone">
+      <th class="tableHeader" mat-header-cell *matHeaderCellDef> Phone </th>
+      <td class="whiteColor" mat-cell *matCellDef="let element"> {{element.phone}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th class="tableHeader" mat-header-cell *matHeaderCellDef> Actions </th>
+      <td class="whiteColor" mat-cell *matCellDef="let element">
+        <div class="actionButtonStyle">
+          <!-- <mat-icon [routerLink]="['/customer/view', element.id]" class="viewButtonStyle">visibility</mat-icon> -->
+          <mat-icon (click)="viewSingleCustomerData(element)" class="viewButtonStyle">visibility</mat-icon>
+          <mat-icon (click)="editSingleCustomerData(element)" class="editButtonStyle">create</mat-icon>
+          <mat-icon (click)="deleteCustomer(element.id)" class="deleteButtonStyle">delete</mat-icon>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+
+
+
+
+
+  <!-- ++++++++++++ CUSTOMER VIEW ++++++++++++ -->
+   <app-customer-view
+    *ngIf="viewCutomerState"
+    (click)="viewCutomerState= false"
+    [singleCustomerDataChild]="singleCustomerData"
+    >
+  </app-customer-view>
+
+
+
+    <!-- ++++++++++++++++++++ CUSTOMER EDIT ++++++++++++++++++ -->
+
+    <app-customer-update
+    *ngIf="editCutomerState"
+    (click)="editCutomerState= false"
+    [customerFormGroupChild]="customerFormGroup"
+    [singleCustomerDataChild]="singleCustomerData"
+    (customerDataEmitter)="updateDataSourceFromChild($event)"
+    >
+
+    </app-customer-update>
+
+
+
+
+
+
+<!-- ++++++++++++++++++++ CUSTOMER DELETE ++++++++++++++++++ -->
+  <app-spinner-progress *ngIf="spinnerState || deleteButtonState"></app-spinner-progress>
+
+  <div *ngIf="overlayState" (click)="overlayState= false" class="dialogOverlay">
+
+    <div (click)="restrictPropagationFunction($event)" class="dialogContent">
+
+      <h5>
+        Deleted Successfully
+      </h5>
+
+      <mat-icon class="iconDone">done_all</mat-icon>
+
+    </div>
+
+  </div>
+
+
+
+
+</div>
